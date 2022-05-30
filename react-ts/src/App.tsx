@@ -18,10 +18,18 @@ function App() {
     });
   };
 
+  //刪除item
+  const removeTodoHandler = (todoId: string) => {
+    setTodos((prevTodos) => {
+      //過濾掉我們要刪除的id  過濾留下不刪除的待辦事項
+      return prevTodos.filter(todo => todo.id !== todoId);
+    });
+  };
+
   return (
     <div>
       <NewTodo onAddTodo={addTodoHandler} />
-      <Todos items={todos} />
+      <Todos items={todos} onRemoveTodo={removeTodoHandler} />
     </div>
   );
 }

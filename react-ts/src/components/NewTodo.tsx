@@ -26,6 +26,10 @@ const NewTodo = (props: { onAddTodo: (text: string) => void }) => {
         }
         //傳遞enteredText到 App.tst
         props.onAddTodo(enteredText);
+
+
+        //送出後清空input
+        todoTextInputRef.current!.value = '';
     };
 
     return (
