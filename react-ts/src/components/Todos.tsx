@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import TodoItem from './TodoItem';
-import Todo from '../models/todo';
+import { TodosContext } from '../store/todos-context';
 import classes from './Todos.module.css';
 
 //App.tsx傳來
-const Todos = (props: { items: Todo[]; onRemoveTodo: (id: string) => void }) => {
+const Todos = () => {
+    const todosCtx = useContext(TodosContext);
     return (
         <ul className={classes.todos}>
-            {props.items.map((item) => (
+            {todosCtx.items.map((item) => (
                 <TodoItem
                     key={item.id}
                     text={item.text}
                     //bind(指向,設置onRemoveTodo接收的參數)
-                    onRemoveTodo={props.onRemoveTodo.bind(null, item.id)}
+                    onRemoveTodo={todosCtx.removeTodo.bind(null, item.id)}
                 />
             ))}
         </ul>
