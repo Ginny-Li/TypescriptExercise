@@ -2,6 +2,7 @@ import React from 'react';
 
 import TodoItem from './TodoItem';
 import Todo from '../models/todo';
+import classes from './Todos.module.css';
 
 //props傳 代辦事項string[] items:key ,children prop(還不知道它的類型)會報錯
 // const Todos = (props) {
@@ -24,7 +25,7 @@ import Todo from '../models/todo';
 //可以使用class作為type類型 Todo{id,text}
 const Todos = (props: { items: Todo[] }) => {
     return (
-        <ul>
+        <ul className={classes.todos}>
             {/* 411-time to Practice: 此使用 TypeScript將li寫寫成component */}
             {props.items.map((item) => (
                 <TodoItem key={item.id} text={item.text} />

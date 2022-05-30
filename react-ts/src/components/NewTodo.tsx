@@ -1,8 +1,10 @@
 import { useRef } from 'react';
 
+import classes from './NewTodo.module.css';
+
 //處理要輸入的代辦事項欄
 // const NewTodo: React.FC<{onAddTodo: (text: string) => void }> = (props) => {
-const NewTodo = (props:{onAddTodo: (text: string) => void}) => {
+const NewTodo = (props: { onAddTodo: (text: string) => void }) => {
     //TypeScript不知道useRef()最終會將它連接到一個輸入元素 只有在ref={todoTextInputRef}才清楚
     //存儲這樣一個輸入元素並且有一個內置類型 必須設置一個默認值:null =>沒有初始值
     const todoTextInputRef = useRef<HTMLInputElement>(null);
@@ -27,7 +29,7 @@ const NewTodo = (props:{onAddTodo: (text: string) => void}) => {
     };
 
     return (
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} className={classes.form}>
             <label htmlFor='text'>Todo text</label>
             <input type='text' id='text' ref={todoTextInputRef} />
             <button>Add Todo</button>
