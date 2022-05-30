@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/TypescriptExercise/static/css/main.ff027d9f.css",
+    "main.js": "/TypescriptExercise/static/js/main.3a788bf0.js",
+    "index.html": "/TypescriptExercise/index.html",
+    "main.ff027d9f.css.map": "/TypescriptExercise/static/css/main.ff027d9f.css.map",
+    "main.3a788bf0.js.map": "/TypescriptExercise/static/js/main.3a788bf0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff027d9f.css",
+    "static/js/main.3a788bf0.js"
+  ]
+}
