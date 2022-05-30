@@ -1,11 +1,26 @@
+import { useState } from 'react';
+
+import NewTodo from './components/NewTodo';
 import Todos from './components/Todos';
 import Todo from './models/todo';
 
 function App() {
-  const todos = [new Todo('Learn React'), new Todo('Learn TypeScript')];
+  //管理todo狀態更新 useState<Todo[]>指定型態 初始是[]
+  const [todos, setTodos] = useState<Todo[]>([]);
+
+  const addTodoHandler = (todoText: string) => {
+    const newTodo = new Todo(todoText);
+
+    //想更新狀態基於之前的狀態: 先前的陣列合併現在準備加進去的Todo 回傳新的陣列
+    setTodos((prevTodos) => {
+      //conact合併值到一個陣列
+      return prevTodos.concat(newTodo);
+    });
+  };
 
   return (
     <div>
+      <NewTodo onAddTodo={addTodoHandler} />
       <Todos items={todos} />
     </div>
   );
